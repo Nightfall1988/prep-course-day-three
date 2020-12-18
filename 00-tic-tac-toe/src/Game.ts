@@ -1,6 +1,7 @@
 export type XO = "X" | "O" | "-";
 
 export class Game {
+    console.log('jjjjjjj')
   getCells(): XO[] {
     return ["X", "-", "-", "-", "-", "-", "-", "-", "-"];
   }
