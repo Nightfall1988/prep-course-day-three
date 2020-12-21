@@ -1,17 +1,30 @@
 export type XO = "X" | "O" | "-";
 
 export class Game {
-    console.log('jjjjjjj')
+  cells: XO[] = ["-", "-", "-", "-", "-", "-", "-", "-", "-"];
   getCells(): XO[] {
-    return ["X", "-", "-", "-", "-", "-", "-", "-", "-"];
+    return this.cells;
   }
 
   getTurn(): XO {
-    return "X";
-  }
+    const countX = this.cells.filter((cell) => cell === "X").length
+    const countO = this.cells.filter((cell) => cell === "O").length
+    if (countX === countO) {
+        return "X"
+    } else {
+        return "O"
+    }
+}
 
   getWinner(): XO {
-    return "-";
+    const indicesOfX: number[] = [];
+    // for (let i = 0; i<this.cells.length; i++) {
+    //     const cell = this.cells[i];
+    //     if (cell == 'X') {
+    //         indicesOfX.push[]                                       
+    //     }
+    // }
+    return '-'
   }
 
   isTie(): boolean {
@@ -19,7 +32,9 @@ export class Game {
   }
 
   onClick(i: number): void {
-    console.log(`cell ${i} clicked`);
+   if (this.cells[i] === "-") {
+        this.cells[i] = this.getTurn();
+   }
   }
 
   restart(): void {
