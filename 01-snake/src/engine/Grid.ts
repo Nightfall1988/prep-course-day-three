@@ -20,13 +20,19 @@ export class Grid {
 
   isAppleInside(cell: Cell): boolean {
       
-    return this.apples.includes(cell);
+    return this.apples.find(it => it.x === cell.x && it.y === cell.y) != undefined;
   }
 
-  removeApple(cell: Cell): void {}
+  removeApple(cell: Cell): void {
+        const apple = this.apples.find(it => it.x === cell.x && it.y === cell.y)
+        if (apple != undefined) {
+            const index = this.apples.indexOf(apple)
+            this.apples.splice(index, 1)
+        }
+  }
 
   isDone(): boolean {
-    return false;
+    return  this.apples.length == 0;
   }
 
   getApples(): Cell[] {

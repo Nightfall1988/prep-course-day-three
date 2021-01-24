@@ -36,12 +36,12 @@ describe("Snake", () => {
         expect(snake.getTail()).toEqual([new Cell(1, 0), new Cell(2, 0)])
     })
 
-   it("should be able to move Up", () => {
+   it("should be able to move left", () => {
         const snake = new Snake()
 
-        snake.setDirection('Up')
+        snake.setDirection('Left')
         snake.move();
-        expect(snake.getHead()).toEqual(new Cell(2, -1))
+        expect(snake.getHead()).toEqual(new Cell(2, 0))
         expect(snake.getTail()).toEqual([new Cell(1, 0), new Cell(2, 0)])
     }) 
 
@@ -55,6 +55,19 @@ describe("Snake", () => {
         snake.move();
         expect(snake.getHead()).toEqual(new Cell(6, 0))
         expect(snake.getTail()).toEqual([new Cell(1, 0), new Cell(2, 0), new Cell(3, 0), new Cell(4, 0), new Cell(5, 0)])
-    }) 
+    })
+
+    it("shouldn't be able to go reverse", () => {
+
+        const snake = new Snake()
+        
+        snake.move();
+        snake.move();
+        snake.move();
+        expect(snake.privDir == 'Down' && snake.direction == 'Up').toBeFalsy()
+        expect(snake.privDir == 'Right' && snake.direction == 'Left').toBeFalsy()
+        expect(snake.privDir == 'Up' && snake.direction == 'Down').toBeFalsy()
+        expect(snake.privDir == 'Left' && snake.direction == 'Right').toBeFalsy()
+    })
     
 })

@@ -16,17 +16,13 @@ privDir: Direction = 'Right';
   }
 
   move() {
-
-    console.log(this.privDir)
     if (this.cellToGrow > 0) {
         this.cellToGrow--;
     } else {
         this.tail.shift();
     }
-      this.tail.push(this.head);
-
-
-
+    this.tail.push(this.head);
+    
     if (this.direction != this.bannedDir) {
         switch (this.direction) {
         case 'Right':{

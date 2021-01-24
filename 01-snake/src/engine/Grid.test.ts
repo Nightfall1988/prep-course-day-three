@@ -29,5 +29,13 @@ describe("Grid", () => {
 
         expect(grid.isAppleInside(apples[0])).toBeTruthy()
         expect(grid.isAppleInside(new Cell(999,999))).toBeFalsy()
-    }) 
+    })
+
+  it("should remove apples", () => {
+      const grid = new Grid(configuration)
+      const apples = grid.getApples()
+      grid.removeApple(apples[0])
+      expect(grid.getApples().length == 4).toBeTruthy()
+      expect(grid.getApples().length == 5).toBeFalsy()
+  })
 });
