@@ -52,7 +52,6 @@ export class Game {
 
   checkState() {
     const cell = this.snake.getHead();
-
     // left the play area or ate itself??
     if (this.isOutside(cell) || this.snake.isSnake(cell)) {
       // dead

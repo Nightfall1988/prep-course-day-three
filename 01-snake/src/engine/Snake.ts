@@ -65,6 +65,15 @@ privDir: Direction = 'Right';
   }
 
   isSnake(cell: Cell): boolean {
+      const searchedCell = new Cell(cell.x,cell.y)
+      const tailCell = this.tail.find(cell => cell.x === searchedCell.x && cell.y === searchedCell.y)
+      if (tailCell != undefined && this.direction != this.privDir) {
+          if (this.tail.includes(tailCell)) {
+            return true
+        } else {
+            return false;
+      }
+    }
     return false;
   }
 

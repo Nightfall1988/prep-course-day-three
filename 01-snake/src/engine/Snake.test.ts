@@ -69,5 +69,11 @@ describe("Snake", () => {
         expect(snake.privDir == 'Up' && snake.direction == 'Down').toBeFalsy()
         expect(snake.privDir == 'Left' && snake.direction == 'Right').toBeFalsy()
     })
-    
+    // WRITE TEST FOR SNAKE --- LOOKS FINE, DOESNT WORK
+    it('should kill snake if it touches its tail', () => {
+        const snake = new Snake()
+        console.log(new Cell(snake.tail[1].x, snake.tail[1].y))
+        console.log(snake.tail)
+        expect(snake.isSnake(new Cell(snake.tail[1].x, snake.tail[1].y))).toBeTruthy()
+    })
 })

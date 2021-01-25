@@ -38,4 +38,15 @@ export class Grid {
   getApples(): Cell[] {
     return this.apples;
   }
+
+  newLevel(): Cell[] {
+    for (let i=0; i<5; i++) {
+      const randomnX = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
+      const randomnY = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
+      const apple = new Cell(randomnX,randomnY);
+      this.apples[i] = apple
+      }
+
+      return this.apples
+  }
 }
