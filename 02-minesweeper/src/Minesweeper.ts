@@ -16,20 +16,31 @@ export class Minesweeper {
   }
 
   columnsCount(): number {
-    return 10;
+    return this.level.columns;
   }
 
   getCells(): Cell[][] {
-    return [
-      [new Cell(), new Cell(), new Cell()],
-      [new Cell(), new Cell(), new Cell()],
-      [new Cell(), new Cell(), new Cell()]
-    ];
+
+      var allCells: Cell[][] = [];
+      let row: Cell[] = []
+      for (let i=0; i<this.level.columns; i++) {
+          row[i] = new Cell()
+      }
+
+      for (let i=0; i<this.level.rows; i++) {
+          allCells[i] = row;
+      }
+      
+      return allCells
   }
 
-  onLeftMouseDown(x: number, y: number) {}
+  onLeftMouseDown(x: number, y: number) {
 
-  onLeftMouseUp(x: number, y: number) {}
+  }
+
+  onLeftMouseUp(x: number, y: number) {
+
+  }
 
   onRightMouseUp(x: number, y: number) {}
 
@@ -51,7 +62,10 @@ export class Minesweeper {
     return this.level;
   }
 
-  selectLevel(level: Level) {}
+  selectLevel(level: Level) {
+      this.level = level
+      return this.level
+  }
 
   isLost(): boolean {
     return false;
